@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-import pca_chart as pc
+#import pca_chart as pc
 import matplotlib.pyplot as plt
-import word_similarity
+#import word_similarity
 import re
 import plotly.express as px
 import process_data as pcd
@@ -105,15 +105,15 @@ with tab3:
    
 
 
-def plot_clusters():
-    st.markdown('This chart uses PCA to show you where you fit among the different job archetypes.')
-    X_train, pca_train, y_train, y_vals, pca_model = pc.create_clusters()
-    for i, val in enumerate(y_train.unique()):
-        y_train = y_train.apply(lambda x: i if x == val else x)
-    example = user_input
-    doc = pc.transform_user_resume(pca_model, example)
+# def plot_clusters():
+#     st.markdown('This chart uses PCA to show you where you fit among the different job archetypes.')
+#     X_train, pca_train, y_train, y_vals, pca_model = pc.create_clusters()
+#     for i, val in enumerate(y_train.unique()):
+#         y_train = y_train.apply(lambda x: i if x == val else x)
+#     example = user_input
+#     doc = pc.transform_user_resume(pca_model, example)
 
-    pc.plot_PCA_2D(pca_train, y_train, y_vals, doc)
+#     pc.plot_PCA_2D(pca_train, y_train, y_vals, doc)
     st.pyplot()
 
 #plot_clusters()
