@@ -414,32 +414,16 @@ def cosineresult(user_input):
 
 def get_recommendation(top, newdf_all, scores):
     
-    recommendation = pd.DataFrame(columns = ['ttl_lower', 'des_lower',  'skil_lower','ind_lower','score'])
+    recommendation = pd.DataFrame(columns = ['Title', 'Job Description',  'Skills','Job Industry','Scores'])
     count = 0
     for i in top:
-        recommendation.at[count, 'ttl_lower']=newdf_all['ttl_lower'][i]
-        recommendation.at[count, 'des_lower'] = newdf_all['des_lower'][i]
-        recommendation.at[count, 'skil_lower'] = newdf_all['skil_lower'][i]
-        recommendation.at[count, 'ind_lower'] = newdf_all['ind_lower'][i]
-        recommendation.at[count, 'score'] =  scores[count]
+        recommendation.at[count, 'Title']=newdf_all['ttl_lower'][i]
+        recommendation.at[count, 'Job Description'] = newdf_all['des_lower'][i]
+        recommendation.at[count, 'Skills'] = newdf_all['skil_lower'][i]
+        recommendation.at[count, 'Job Industry'] = newdf_all['ind_lower'][i]
+        recommendation.at[count, 'Scores'] =  scores[count]
         count += 1
     recommendation = recommendation[recommendation['score'] <0.7]
-    return recommendation
-
-def get_recommendation1(top, newdf_all, scores):
-    
-    recommendation = pd.DataFrame(columns = ['ttl_lower', 'des_lower',  'skil_lower','ind_lower','score'])
-    count = 0
-    for i in top:
-        recommendation.at[count, 'ttl_lower']=newdf_all['title'][i]
-        recommendation.at[count, 'des_lower'] = newdf_all['description'][i]
-        recommendation.at[count, 'skil_lower'] = newdf_all['skills'][i]
-        recommendation.at[count, 'ind_lower'] = newdf_all['industry'][i]
-        recommendation.at[count, 'score'] =  scores[count]
-        count += 1
-    
-
-
     return recommendation
 
 
