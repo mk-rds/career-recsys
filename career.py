@@ -147,9 +147,9 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-tab1, tab2, tab3 = st.tabs(["By Skills", "By Jobs", "By Job Industry"])
+tab4, tab5, tab6 = st.tabs(["By Skills", "By Jobs", "By Job Industry"])
 
-with tab1:
+with tab4:
     st.sidebar.markdown("About our dataset")
     st.sidebar.markdown("A dataset of 1489 records was obtained by data scraping from Monster, a global online provider of job seeking, career management and more")
     #st.sidebar.markdown("Show which jobs are similar")
@@ -179,7 +179,7 @@ with tab1:
     st.dataframe(pcd.get_recommendation(top,newdf_all, list_scores))
     
 
-with tab2:
+with tab5:
     st.header("Similar Job Search")
     job_input = st.text_area("Enter job title to search for similar jobs", 'Data Engineer')
 
@@ -197,7 +197,7 @@ with tab2:
 
     
 
-with tab3:
+with tab6:
     st.header("Most frequent used words in job descriptions")
     option = st.selectbox(
      'Select Job Industry',
