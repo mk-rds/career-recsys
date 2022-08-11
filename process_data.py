@@ -15,8 +15,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score, train_test_split, GridSearchCV
 from sklearn.metrics import accuracy_score
 
-nltk.download('punkt')
-nltk.download('stopwords')
 
 
 #Stop words present in the library
@@ -262,6 +260,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score, train_test_split, GridSearchCV
 from sklearn.metrics import accuracy_score
 
+nltk.download('punkt')
+nltk.download('stopwords')
 
 #Stop words present in the library
 new_stopwords = ["index","ability", "good", "years", "knowledge", "work","job", "strong","description","requirements","experience","work"]
