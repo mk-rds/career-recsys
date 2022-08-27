@@ -384,6 +384,7 @@ def sortbyindustry(data,industry):
 
 def topindustry():
     df=process_data()
+    industrydf=df[['industry']]
     industrydf['industry']=industrydf['industry'].astype(str)
     industrydf=industrydf.groupby(['industry']).size().reset_index(name='counts')
     industrydf = industrydf[industrydf['industry'] != 'Other']
