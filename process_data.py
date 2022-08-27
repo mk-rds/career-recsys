@@ -423,7 +423,7 @@ def get_recommendation(top, newdf_all, scores):
         recommendation.at[count, 'Job Industry'] = newdf_all['ind_lower'][i]
         recommendation.at[count, 'Scores'] =  scores[count]
         count += 1
-    recommendation = recommendation[recommendation['score'] <0.7]
+    recommendation = recommendation[recommendation['Scores'] <0.7]
     return recommendation
 
 
