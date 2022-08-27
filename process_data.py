@@ -384,15 +384,17 @@ def sortbyindustry(data,industry):
 
 def topindustry():
     df=process_data()
-    industrydf=df[['industry']]
     industrydf['industry']=industrydf['industry'].astype(str)
     industrydf=industrydf.groupby(['industry']).size().reset_index(name='counts')
     industrydf = industrydf[industrydf['industry'] != 'Other']
     industrydf = industrydf[industrydf['industry'] != 'NA']
     industrysorted=industrydf.sort_values(by=['counts'],ascending=False)
     industrysorted=industrysorted.head(15)
-    fig = px.bar(industrysorted, x=industrysorted.industry, y = industrysorted.counts)
-    
+    fig = px.bar(industrysorted, x="industry", y = "counts" ,
+                    labels={
+                     "industry":"Industry" ,
+                     "counts": "Number of Jobs"}
+                     )
     return fig
 
 def industrykeywords(sorteddf):
