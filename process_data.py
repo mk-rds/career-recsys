@@ -156,10 +156,10 @@ def get_recommendation(top, newdf_all, scores):
     recommendation = pd.DataFrame(columns = ['Title', 'Job Description',  'Skills','Job Industry','Scores'])
     count = 0
     for i in top:
-        recommendation.at[count, 'Title']=newdf_all['ttl_lower'][i]
-        recommendation.at[count, 'Job Description'] = newdf_all['des_lower'][i]
-        recommendation.at[count, 'Skills'] = newdf_all['skil_lower'][i]
-        recommendation.at[count, 'Job Industry'] = newdf_all['ind_lower'][i]
+        recommendation.at[count, 'Title']=newdf_all['title'][i]
+        recommendation.at[count, 'Job Description'] = newdf_all['description'][i]
+        recommendation.at[count, 'Skills'] = newdf_all['skills'][i]
+        recommendation.at[count, 'Job Industry'] = newdf_all['industry'][i]
         recommendation.at[count, 'Scores'] =  scores[count]
         count += 1
     recommendation = recommendation[recommendation['Scores'] <0.7]
